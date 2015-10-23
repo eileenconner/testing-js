@@ -49,7 +49,9 @@ function findWinner() {
     // horizontal
     for (var rowi = 0; rowi < 3; rowi++) {
         cell = board[xyToCell(0, rowi)];
-        if (board[xyToCell(1, rowi)] === cell && board[xyToCell(2, rowi)] === cell) {
+        if ( (board[xyToCell(1, rowi)] === cell) &&
+             (board[xyToCell(2, rowi)] === cell) )
+        {
             return cell;
         }
     }
@@ -139,7 +141,8 @@ function makeHumanMove(cellNumber) {
     if (placePiece(cellNumber, "X")) {
         updateBoard();
 
-        if (!checkGameOver()) {
+        if (!checkGameOver()) 
+        {
             computerMove();
             updateBoard();
             checkGameOver();
@@ -153,6 +156,8 @@ function handleClick(evt) {
 
     var cell = evt.currentTarget;
     makeHumanMove(parseInt(cell.id[5]));
+    console.log(cell)
+    console.log(cell.id)
 }
 
 
@@ -168,5 +173,5 @@ function startGame(evt) {
     $(this).remove();
 }
 
-
+//listener for start button
 $("#start-game").on("click", startGame);

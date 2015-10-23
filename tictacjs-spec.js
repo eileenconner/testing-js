@@ -4,29 +4,30 @@
 describe("Tic Tac JS", function () {
 
     it("should detect a full board as full", function () {
-        board = ["X", "X", "X", "X", "X", "X", "X", "X", "X"];
+        board = ["E", "X", "X", "X", "X", "X", "X", "X", "X"];
         expect(isBoardFull()).toBeTruthy();
     });
 
     // STEP 2: Uncomment this out.
 
-    //it("should detect a non-full board as not full", function () {
-    //    board = ["X", "X", null, "X", "X", "X", "X", "X", "X"];
-    //    // Add a matcher for this test.
-    //});
-    //
-    //it("should convert x, y to cell #", function () {
-    //    var cellNumber1 = xyToCell(1, 1);
-    //    var cellNumber2 = xyToCell(0, 0);
-    //    // Add 2 matchers for this test, one for cellNumber1 and one for cellNumber2.
-    //});
-    //
-    //it("should make computer moves", function () {
-    //    board = ["X", null, null, null, null, null, null, null, null];
-    //    computerMove();
-    //    var newBoardPiece = board[1];
-    //    // Add a matcher for this test.
-    //});
+    it("should detect a non-full board as not full", function () {
+       board = ["X", "X", null, "X", "X", "X", "X", "X", "X"];
+       expect(isBoardFull()).toBeFalsy();
+    });
+    
+    it("should convert x, y to cell #", function () {
+       var cellNumber1 = xyToCell(1, 1);
+       var cellNumber2 = xyToCell(0, 0);
+       expect(cellNumber1).toBe(4);
+       expect(cellNumber2).toBe(0);
+    });
+    
+    it("should make computer moves", function () {
+       board = ["X", null, null, null, null, null, null, null, null];
+       computerMove();
+       var newBoardPiece = board[1];
+       expect(newBoardPiece).toBe("O");
+    });
 
     // END STEP 2
 
