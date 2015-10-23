@@ -32,8 +32,26 @@ describe("Tic Tac JS", function () {
     // END STEP 2
 
     // Add the following tests, or think of some of your own.
+    
     // it should update the board correctly based on the board
+    it("should update the board correctly", function() {
+        board = ["X", "O", "O", "X", null, null, null, null, null];
+        updateBoard();
+        expect($("#cell-0").text()).toBe("X");
+        expect($("#cell-2").text()).toBe("O");
+        expect($("#cell-8").text()).toBe("");
+    });
+
+
     // it should not fill in board slots that are already occupied
+    it("should not fill in occupied board slots", function () {
+        board = ["X", null, "O", "X", null, null, null, null, null];
+        expect(placePiece(0, "O")).toBeFalsy();
+        expect(placePiece(1, "O")).toBeTruthy();
+    });
+
+
+
     // it should be able to determine a winner
     // it should not determine a winner when there is a tie
     // it should be able to deduce the correct cell number
